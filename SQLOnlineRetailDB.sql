@@ -212,11 +212,6 @@ FROM (
 	GROUP BY c.CategoryID, c.CategoryName) sub
 	WHERE rn = 1;
 
-
------ to insert a product with zero stock
-INSERT INTO Products(ProductName, CategoryID, Price, Stock)
-VALUES ('Keyboard', 1, 39.99, 0);
-
 --Q6: List all products that are out of stock, where stock = 0
 	SELECT * 
 	FROM Products 
@@ -280,6 +275,11 @@ ORDER BY TotalCustomers DESC;
  --Q 14 Display products table
 SELECT * 
 FROM Products;
+
+--Q 15 insert a product with zero stock
+
+INSERT INTO Products(ProductName, CategoryID, Price, Stock)
+VALUES ('Keyboard', 1, 39.99, 0);
 
 -- ==========================================================================================
 --                    CRUD operation 
