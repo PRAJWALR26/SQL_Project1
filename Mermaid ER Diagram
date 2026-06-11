@@ -1,0 +1,52 @@
+```mermaid
+erDiagram
+
+    CUSTOMERS ||--o{ ORDERS : places
+    ORDERS ||--o{ ORDERITEMS : contains
+    PRODUCTS ||--o{ ORDERITEMS : included_in
+    CATEGORIES ||--o{ PRODUCTS : categorizes
+
+    CUSTOMERS {
+        int CustomerID PK
+        string FirstName
+        string LastName
+        string Email
+        string Phone
+        string Address
+        string City
+        string State
+        string ZipCode
+        string Country
+        datetime CreatedAt
+    }
+
+    ORDERS {
+        int OrderID PK
+        int CustomerID FK
+        datetime OrderDate
+        decimal TotalAmount
+    }
+
+    ORDERITEMS {
+        int OrderItemID PK
+        int OrderID FK
+        int ProductID FK
+        int Quantity
+        decimal Price
+    }
+
+    PRODUCTS {
+        int ProductID PK
+        int CategoryID FK
+        string ProductName
+        decimal Price
+        int Stock
+        datetime CreatedAt
+    }
+
+    CATEGORIES {
+        int CategoryID PK
+        string CategoryName
+        string Description
+    }
+```
